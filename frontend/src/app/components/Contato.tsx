@@ -106,7 +106,7 @@ export default function Contato() {
               <p>LinkedIn</p>
             </a>
 
-            <a href="https://www.instagram.com/arielsnts__/" 
+            <a href="https://www.instagram.com/arielsnts__/" target="_blank"
             className={styles.redeItem}>
               <div className={styles.fundoRede}>
                 <FaInstagram size={40} />
