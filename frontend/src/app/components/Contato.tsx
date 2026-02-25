@@ -2,7 +2,7 @@
 
 import styles from "./contato.module.css"
 import { SiGithub, SiLinkedin } from "react-icons/si"
-import { MdEmail } from "react-icons/md"
+import { FaInstagram } from "react-icons/fa6";
 import { action } from "./action"
 import { useState } from "react"
 
@@ -12,41 +12,41 @@ export default function Contato() {
   const [msg, setMsg] = useState("")
   const [loading, setLoading] = useState(false)
 
-async function enviarContato() {
-  if (loading) return
+  async function enviarContato() {
+    if (loading) return
 
-  if (!nome.trim() || !email.trim() || !msg.trim()) {
-    alert("Preencha todos os campos antes de enviar.")
-    return
-  }
-
-  try {
-    setLoading(true)
-
-    const response = await action({
-      nome,
-      email,
-      mensagem: msg
-    })
-
-    if (response?.error) {
-      alert(response.error)
+    if (!nome.trim() || !email.trim() || !msg.trim()) {
+      alert("Preencha todos os campos antes de enviar.")
       return
     }
 
-    alert("Mensagem enviada com sucesso!")
-    setNome("")
-    setEmail("")
-    setMsg("")
+    try {
+      setLoading(true)
+
+      const response = await action({
+        nome,
+        email,
+        mensagem: msg
+      })
+
+      if (response?.error) {
+        alert(response.error)
+        return
+      }
+
+      alert("Mensagem enviada com sucesso!")
+      setNome("")
+      setEmail("")
+      setMsg("")
+    }
+    catch (e) {
+      console.error(e)
+      alert("Ocorreu um erro ao enviar sua mensagem.")
+    }
+    finally {
+      setLoading(false)
+    }
   }
-  catch (e) {
-    console.error(e)
-    alert("Ocorreu um erro ao enviar sua mensagem.")
-  }
-  finally {
-    setLoading(false)
-  }
-}
 
   return (
     <div className={styles.contato} id="contato">
@@ -106,12 +106,13 @@ async function enviarContato() {
               <p>LinkedIn</p>
             </a>
 
-            <div title="arielsant520@gmail.com" className={styles.redeItem}>
+            <a href="https://www.instagram.com/arielsnts__/" 
+            className={styles.redeItem}>
               <div className={styles.fundoRede}>
-                <MdEmail size={40} />
+                <FaInstagram size={40} />
               </div>
-              <p>Email</p>
-            </div>
+              <p>Instagram</p>
+            </a>
           </div>
 
         </div>
