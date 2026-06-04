@@ -1,6 +1,9 @@
 import prisma from "@/lib/prisma"
 import styles from "./pageProjetos.module.css"
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 type Projeto = {
    id: number
    nome: string
