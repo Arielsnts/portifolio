@@ -13,4 +13,5 @@ model Projeto {
   img    String
   tags   String[]
   link   String
+  ordem  Int      @default(0)
 }

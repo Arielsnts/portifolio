@@ -10,12 +10,13 @@ type Projeto = {
    img: string
    link: string
    tags: string[]
+   ordem: number
 }
 
 export default async function Page() {
    const projetos: Projeto[] = await prisma.projeto.findMany({
       orderBy: {
-         id: "asc"
+         ordem: "asc"
       }
    })
 

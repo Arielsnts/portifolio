@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Projeto" ADD COLUMN     "ordem" INTEGER NOT NULL DEFAULT 0;
